@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acoustic-topo-lock"
+version = "0.1.0"
+description = "Research workbench for acoustic authentication"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "numpy==2.3.5",
+    "SoundFile==0.13.1",
+    "joblib==1.5.2",
+]
+
+[project.optional-dependencies]
+ui = ["streamlit==1.52.2", "plotly==6.5.0"]
+test = ["pytest==8.4.2"]
+research = ["scikit-learn==1.7.2"]
+voice = [
+    "speechbrain==1.0.3",
+    "torch==2.7.1",
+    "torchaudio==2.7.1",
+    "huggingface-hub==0.34.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"acoustic_topo_lock.core" = ["defaults/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]

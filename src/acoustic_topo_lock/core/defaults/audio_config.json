@@ -1,0 +1,12 @@
+{
+  "target_rate": 16000,
+  "min_seconds": 1.0,
+  "max_seconds": 30.0,
+  "min_source_rate": 8000,
+  "max_source_rate": 192000,
+  "max_channels": 8,
+  "max_bytes": 52428800,
+  "min_rms": 0.0003,
+  "min_active_seconds": 0.4,
+  "clipping_warn_ratio": 0.002
+}

@@ -1,0 +1,19 @@
+{
+  "seed": 19,
+  "svm_train_limit": 12000,
+  "smoke_per_class": 48,
+  "audio": {
+    "min_seconds": 0.10,
+    "max_seconds": 60.0,
+    "silence_rms": 0.00001,
+    "clip_level": 0.999,
+    "clip_fraction": 0.001
+  },
+  "features": {
+    "frame_samples": 400,
+    "hop_samples": 160,
+    "fft_size": 512,
+    "bands": 40,
+    "cepstra": 20
+  }
+}

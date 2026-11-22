@@ -1,0 +1,9 @@
+# Evaluation protocol
+
+Keep enrollment, train, calibration, development, and eval trials disjoint by original source. Use official partitions for ASVspoof PA. In a room study, group by participants across all sessions and account for microphone and playback-device reuse. Fit preprocessing transforms and classifiers on train. Select hyperparameters and operating thresholds on development. Preserve the selected model and threshold before scoring eval.
+
+The evaluation command reports replay FAR and FRR at the frozen threshold, descriptive EER through interpolation of grouped score thresholds, and RAAR as accepted replay trials divided by replay trials. Room evaluation reports accuracy and a confusion matrix. The error curve consists of empirical false-accept and false-reject rates and supports ROC plotting with true-positive rate equal to one minus FRR. Latency reports per-row model scoring time with mean, median, and 95th percentile. The application records end-to-end latency separately.
+
+`compare_trials` takes aligned score arrays for Model 0 (MFCC/cosine), Model A (ECAPA only), Model B (ECAPA and room), and Model C (ECAPA, room, and replay) where the requisite measured scores exist. Supply disjoint development and evaluation dictionaries with participant IDs, boolean genuine labels, and the selected score arrays. Evaluation also needs replay flags. Predefine score construction for each ablation, fit calibrators or score fusion on disjoint fitting partitions, and omit models without valid complete trials. Paired model accuracy differences use a participant-block percentile bootstrap.
+
+For error analysis, inspect condition-specific replay acceptance, device groups, room confusion, input quality, and missing-data patterns. Report denominators and uncertainty. A device holdout needs reliable device metadata and a partition constructed around that research question.
