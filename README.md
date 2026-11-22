@@ -14,6 +14,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
+
 Open [the local dashboard](http://127.0.0.1:8501). On macOS or Linux, use `.venv/bin/python` for the last two commands. Streamlit serves on loopback by default.
 
 For a smaller backend-only environment, use `python -m pip install -e ".[test]"`. The GUI and training dependencies are separate extras.
